@@ -1,0 +1,21 @@
+{
+  "topology": {
+    "name": "stage3_cp16_1024npu",
+    "world_size": 1024,
+    "nproc_per_node": 16,
+    "tensor_parallel": 1,
+    "context_parallel": 16,
+    "pipeline_parallel": 1,
+    "sequence_parallel": false,
+    "data_parallel": 64,
+    "rank_order": "tp-cp-dp-pp",
+    "global_batch_size": 64,
+    "micro_batch_size": 1,
+    "hsdp": {
+      "mode": "ordinary",
+      "shard_size": 16,
+      "num_instances": 64,
+      "ddp_num_buckets": 2
+    }
+  }
+}

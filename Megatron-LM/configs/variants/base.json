@@ -1,0 +1,13 @@
+{
+  "variant": {
+    "name": "base",
+    "model_impl": "olmo3",
+    "use_siamese_norm": false,
+    "siamese_norm_variant": null,
+    "use_depth_attention": false,
+    "depth_attention_stride": null,
+    "depth_attention_recent_window": 0,
+    "checkpoint_keyspace": "olmo3_base_v1"
+  }
+}
+

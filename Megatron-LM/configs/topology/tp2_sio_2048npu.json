@@ -1,0 +1,21 @@
+{
+  "topology": {
+    "name": "tp2_sio_2048npu",
+    "world_size": 2048,
+    "nproc_per_node": 16,
+    "tensor_parallel": 2,
+    "context_parallel": 1,
+    "pipeline_parallel": 1,
+    "sequence_parallel": true,
+    "data_parallel": 1024,
+    "rank_order": "tp-cp-dp-pp",
+    "global_batch_size": 1024,
+    "micro_batch_size": 1,
+    "hsdp": {
+      "mode": "ordinary",
+      "shard_size": 8,
+      "num_instances": 128,
+      "ddp_num_buckets": 8
+    }
+  }
+}

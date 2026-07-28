@@ -1,0 +1,52 @@
+{
+  "generated_at_utc": "2026-07-26T14:00:00Z",
+  "upstream_declared_stack": {
+    "source": "third_party/MindSpeed-LLM/docs/zh/release_notes_llm.md",
+    "mindspeed_llm_branch": "master",
+    "mindspeed_branch": "master",
+    "megatron_version": "core_v0.12.1",
+    "python": "3.10",
+    "pytorch": "2.7.1"
+  },
+  "repositories": {
+    "MindSpeed": {
+      "url": "https://github.com/Ascend/MindSpeed.git",
+      "ref": "master",
+      "commit": "c94078bb90795dd8f3329a640eb5c0eac472f9d9",
+      "path": "third_party/MindSpeed",
+      "must_be_pristine": true,
+      "require_full_history": true
+    },
+    "MindSpeed-LLM": {
+      "url": "https://github.com/Ascend/MindSpeed-LLM.git",
+      "ref": "master",
+      "commit": "630fe3c4cd1a5416c8b90986cd04e212ad654f06",
+      "path": "third_party/MindSpeed-LLM",
+      "must_be_pristine": true,
+      "require_full_history": true
+    },
+    "Megatron-LM": {
+      "url": "https://github.com/NVIDIA/Megatron-LM.git",
+      "ref": "core_v0.12.1",
+      "commit": "a845aa7e12b3a117e24c2352b9e3e60bad2e3a17",
+      "path": "megatron",
+      "vendored_and_modified": true
+    },
+    "OLMo-core": {
+      "url": "https://github.com/allenai/OLMo-core.git",
+      "ref": "main",
+      "commit": "fa6c5014c9f6e9ee789da2d9c20d5126fee8df0d",
+      "path": "third_party/OLMo-core",
+      "must_be_pristine": true,
+      "role": "read-only architecture and recipe specification"
+    },
+    "OLMES": {
+      "url": "https://github.com/allenai/olmes.git",
+      "ref": "5a51f502d463b8cdc4a2dcad7d7096c41ff1197e",
+      "commit": "5a51f502d463b8cdc4a2dcad7d7096c41ff1197e",
+      "path": "third_party/olmes",
+      "must_be_pristine": true,
+      "role": "evaluation-only request construction and objective scoring; never imported by the Ascend training runtime"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "topology": {
+    "name": "stage1_tp1_4096npu",
+    "world_size": 4096,
+    "nproc_per_node": 16,
+    "tensor_parallel": 1,
+    "context_parallel": 1,
+    "pipeline_parallel": 1,
+    "sequence_parallel": false,
+    "data_parallel": 4096,
+    "rank_order": "tp-cp-dp-pp",
+    "global_batch_size": 8192,
+    "micro_batch_size": 2,
+    "hsdp": {
+      "mode": "ordinary",
+      "shard_size": 2048,
+      "num_instances": 2,
+      "ddp_num_buckets": 8
+    }
+  }
+}

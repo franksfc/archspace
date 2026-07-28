@@ -1,0 +1,19 @@
+{
+  "performance": {
+    "profiles": ["tp2_sio_mc2"],
+    "tensor_parallel_kernel": "ascend_mc2",
+    "mc2_all_gather_recomputation": true,
+    "require_tp_same_physical_card": true,
+    "require_tp_link": "SIO",
+    "hsdp_inter_backward_overlap": true,
+    "hsdp_inter_tp_lane_pack": 2,
+    "overlap_grad_reduce": true,
+    "overlap_param_gather": true,
+    "overlap_param_gather_with_optimizer_step": false,
+    "grad_reduce_dtype": "fp32",
+    "manual_gc": true,
+    "manual_gc_interval": 0,
+    "defer_dp_loss_reporting": true,
+    "scalar_reduce_backend": "hccl"
+  }
+}

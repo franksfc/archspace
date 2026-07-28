@@ -1,0 +1,6 @@
+{
+  "upstream_commit": "a845aa7e12b3a117e24c2352b9e3e60bad2e3a17",
+  "upstream_ref": "core_v0.12.1",
+  "upstream_url": "https://github.com/NVIDIA/Megatron-LM.git",
+  "policy": "Vendored Megatron is the only upstream runtime tree modified by this project."
+}

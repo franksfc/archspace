@@ -1,0 +1,13 @@
+# Versions observed in the pinned, frozen OLMES request/scoring contract.
+# The remaining dependency graph is resolved from third_party/olmes at the
+# exact Git commit recorded in UPSTREAM_LOCK.json.
+antlr4-python3-runtime==4.11.0
+datasets==3.6.0
+fsspec==2023.5.0
+lm-eval==0.4.3
+nltk==3.8.1
+numpy==1.26.4
+omegaconf==2.4.0.dev3
+torch==2.8.0
+transformers==4.57.6
+tree-sitter==0.25.0

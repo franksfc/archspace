@@ -1,0 +1,33 @@
+{
+  "data": {
+    "name": "longmino_50b",
+    "stage": "stage3",
+    "backend": "olmo3_numpy_packed",
+    "root": null,
+    "manifest": null,
+    "work_dir": null,
+    "known_token_count": 55279928852,
+    "tokenizer": {
+      "kind": "huggingface_tokenizer_json",
+      "path": null,
+      "eos_token_id": 100257,
+      "pad_token_id": 100277,
+      "bos_token_id": null
+    },
+    "source": {
+      "repository": "allenai/dolma3_longmino_mix-50B-1025",
+      "revision": "8c0b3b265f95514c0f1b643c95da518e261a32a7"
+    },
+    "packing": {
+      "kind": "obfd_fsl",
+      "sequence_length": 65536,
+      "generate_doc_lengths": true,
+      "source_group_size": 8,
+      "source_permutation_seed": 123,
+      "training_shuffle_seed": 4123,
+      "document_relative_positions": true,
+      "forbid_cross_document_attention": true,
+      "mask_document_terminal_targets": true
+    }
+  }
+}

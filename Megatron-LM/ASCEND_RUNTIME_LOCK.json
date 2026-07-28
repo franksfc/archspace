@@ -1,0 +1,48 @@
+{
+  "schema": "olmo3.mindspeed.ascend-runtime-lock/v1",
+  "recorded_at_utc": "2026-07-26T20:55:32Z",
+  "validation_scope": "Ascend 910C multi-node Stage 1 through Stage 4 validation",
+  "python": {
+    "version": "3.10.20"
+  },
+  "python_packages": {
+    "torch": {
+      "distribution": "torch",
+      "version": "2.6.0"
+    },
+    "torch_npu": {
+      "distribution": "torch-npu",
+      "version": "2.6.0"
+    }
+  },
+  "ascend_components": {
+    "runtime": {
+      "version_key": "runtime_running_version",
+      "build": "8.3.0.2.220",
+      "release": "8.3.RC2"
+    },
+    "hccl": {
+      "version_key": "hccl_running_version",
+      "build": "8.3.0.2.220",
+      "release": "8.3.RC2"
+    }
+  },
+  "upstream_declaration": {
+    "source": "UPSTREAM_LOCK.json upstream_declared_stack.pytorch",
+    "pytorch": "2.7.1"
+  },
+  "support_status": "project-validated-deviation",
+  "validated_deviation": {
+    "pytorch": "The pinned MindSpeed-LLM upstream branch declares PyTorch 2.7.1, while the deployment image validated end to end for this pipeline supplies the matched torch/torch_npu 2.6.0 pair. The executable runtime lock takes precedence over that upstream declaration for this deployment."
+  },
+  "validation_evidence": {
+    "kind": "isolated_end_to_end",
+    "scope": "isolated multi-node Stage 1 through Stage 4 pipeline",
+    "result": "passed",
+    "upstream_commits": {
+      "MindSpeed": "c94078bb90795dd8f3329a640eb5c0eac472f9d9",
+      "MindSpeed-LLM": "630fe3c4cd1a5416c8b90986cd04e212ad654f06",
+      "Megatron-LM": "a845aa7e12b3a117e24c2352b9e3e60bad2e3a17"
+    }
+  }
+}

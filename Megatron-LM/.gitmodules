@@ -1,0 +1,12 @@
+[submodule "third_party/MindSpeed"]
+	path = third_party/MindSpeed
+	url = https://github.com/Ascend/MindSpeed.git
+[submodule "third_party/MindSpeed-LLM"]
+	path = third_party/MindSpeed-LLM
+	url = https://github.com/Ascend/MindSpeed-LLM.git
+[submodule "third_party/OLMo-core"]
+	path = third_party/OLMo-core
+	url = https://github.com/allenai/OLMo-core.git
+[submodule "third_party/olmes"]
+	path = third_party/olmes
+	url = https://github.com/allenai/olmes.git

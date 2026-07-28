@@ -1,0 +1,72 @@
+#!/bin/bash
+# Distributed training launch script (PyTorch backend)
+
+export CUDA_DEVICE_MAX_CONNECTIONS=1
+
+NPUS_PER_NODE=8    # Number of NPUs per node
+MASTER_ADDR=localhost    # Master node address
+MASTER_PORT=6001    # Master node port
+NNODES=1    # Number of nodes
+NODE_RANK=0    # Current node rank
+WORLD_SIZE=$(($NPUS_PER_NODE*$NNODES))    # Global number of processes
+CKPT_DIR=./ckpt    # Checkpoint directory
+VOCAB_FILE=<Specify path to file>/vocab.json    # Vocabulary file path
+MERGE_FILE=<Specify path to file>/merges.txt    # BPE merge file path
+DATA_PATH=<Specify path and file prefix>_text_document    # Data path
+TP=2    # Tensor parallelism degree
+PP=2    # Pipeline parallelism degree
+CP=1    # Context parallelism degree
+EP=1    # Expert parallelism degree
+
+DISTRIBUTED_ARGS="
+    --nproc_per_node $NPUS_PER_NODE \
+    --nnodes $NNODES \
+    --node_rank $NODE_RANK \
+    --master_addr $MASTER_ADDR \
+    --master_port $MASTER_PORT
+"
+GPT_ARGS="
+    --tensor-model-parallel-size ${TP} \
+    --pipeline-model-parallel-size ${PP} \
+    --num-layers-per-virtual-pipeline-stage 1 \
+    --num-layers 8 \
+    --hidden-size 4096 \
+    --ffn-hidden-size 14336 \
+    --num-attention-heads 64 \
+    --seq-length 4096 \
+    --max-position-embeddings 4096 \
+    --micro-batch-size 1 \
+    --global-batch-size 16 \
+    --make-vocab-size-divisible-by 1 \
+    --lr 1.0e-6 \
+    --train-iters 1000 \
+    --init-method-std 0.01 \
+    --no-masked-softmax-fusion \
+    --attention-softmax-in-fp32 \
+    --min-lr 1.0e-7 \
+    --weight-decay 0.1 \
+    --clip-grad 1.0 \
+    --initial-loss-scale 4096.0 \
+    --disable-bias-linear \
+    --lr-warmup-fraction 0.01 \
+    --fp16
+"
+DATA_ARGS="
+    --split 990,5,5
+    --data-path $DATA_PATH \
+    --vocab-file $VOCAB_FILE \
+    --merge-file $MERGE_FILE \
+"
+OUTPUT_ARGS="
+    --log-throughput \
+    --log-interval 1 \
+    --save-interval 10000 \
+    --eval-interval 10000 \
+    --eval-iters 10 \
+"
+torchrun $DISTRIBUTED_ARGS pretrain_gpt.py \
+    $GPT_ARGS \
+    $DATA_ARGS \
+    $OUTPUT_ARGS \
+    --distributed-backend nccl \
+set +x

@@ -1,0 +1,49 @@
+# OLMo 3 pipeline control plane, data download, tokenization, packing, and tests.
+#
+# OLMo 3's tokenizer snapshot requires tokenizers 0.20.x. Dolma 1.1.2 has an
+# overly strict <=0.19.1 package-metadata bound even though its tokenization
+# path is compatible with 0.20.3. scripts/bootstrap_conda_env.sh therefore
+# installs requirements/dolma-bootstrap.txt first, then the exact public
+# closure in requirements/train.lock.txt and this direct runtime layer,
+# and exercises both implementations before declaring success.
+# The pristine upstream requirement files are specifications rather than
+# installed distributions.  This pipeline intentionally keeps the versions
+# that were exercised end to end on Ascend NPUs: NumPy 1.26.4 despite
+# MindSpeed's conservative ``<=1.26.0`` declaration, and Transformers 4.46.1
+# instead of the unrelated MindSpeed-LLM ``==5.2.0`` application stack.
+# The matched torch/torch_npu wheels are installed separately from
+# requirements/ascend-runtime.txt using an explicit external wheelhouse.
+# CANN itself is host software rather than a pip dependency. In particular,
+# ``acl`` is a CANN-owned binary module; scripts/bootstrap_conda_env.sh adds
+# its validated host path through a .pth file.
+#
+# The project itself is installed separately, in non-editable mode, by
+# scripts/bootstrap_conda_env.sh. Keeping local paths out of this file makes
+# the environment relocatable between the control-host and training-Pod mount
+# prefixes.
+numpy==1.26.4
+einops==0.8.2
+scipy==1.15.3
+psutil==7.2.2
+ninja==1.13.0
+# Pure-Python dependencies of the image-owned torch 2.6.0 wheel.  They are
+# pinned here because cloning a different Ascend base must not silently change
+# Megatron graph construction, symbolic-shape handling, or JIT compilation.
+jinja2==3.1.6
+markupsafe==2.1.5
+mpmath==1.3.0
+networkx==3.4.2
+sympy==1.13.1
+packaging==26.0
+tomli==2.4.1
+huggingface-hub==0.36.0
+transformers==4.46.1
+tokenizers==0.20.3
+datasets==3.1.0
+pyarrow==23.0.1
+zstandard==0.23.0
+wandb==0.25.1
+pytest==8.4.1
+pip==26.0.1
+setuptools==80.9.0
+wheel==0.46.3

@@ -1,0 +1,8 @@
+# Binary Python runtime paired with the CANN/HCCL build recorded in
+# ASCEND_RUNTIME_LOCK.json.
+#
+# These packages must be supplied as Python 3.10 wheels in an external local
+# wheelhouse. They are intentionally not inherited from another Conda
+# environment and are not resolved from an unpinned public index.
+torch==2.6.0
+torch-npu==2.6.0

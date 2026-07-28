@@ -1,0 +1,5 @@
+# Install this layer before requirements/train.lock.txt and
+# requirements.txt. Dolma's transitive dependencies are resolved once under
+# its published metadata; the two exact --no-deps layers then restore the
+# OLMo-3-compatible tokenizer implementation.
+dolma==1.1.2

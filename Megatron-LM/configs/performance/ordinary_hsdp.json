@@ -1,0 +1,13 @@
+{
+  "performance": {
+    "profiles": ["ordinary_hsdp"],
+    "overlap_grad_reduce": true,
+    "overlap_param_gather": true,
+    "overlap_param_gather_with_optimizer_step": false,
+    "grad_reduce_dtype": "fp32",
+    "manual_gc": true,
+    "manual_gc_interval": 0,
+    "defer_dp_loss_reporting": true,
+    "scalar_reduce_backend": "hccl"
+  }
+}

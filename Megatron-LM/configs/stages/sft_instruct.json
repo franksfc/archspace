@@ -1,0 +1,43 @@
+{
+  "stage": {
+    "name": "sft_instruct",
+    "sequence_length": 32768,
+    "model_max_sequence_length": 65536,
+    "packed": true,
+    "assistant_only_loss": true,
+    "full_attention_yarn": {
+      "type": "yarn",
+      "factor": 8.0,
+      "beta_fast": 32,
+      "beta_slow": 1,
+      "original_max_position_embeddings": 8192
+    },
+    "activation_checkpoint": "mlp",
+    "checkpoint_lifecycle": "transition_or_resume"
+  },
+  "training": {
+    "train_tokens": null,
+    "epochs": 2,
+    "global_batch_size": null,
+    "micro_batch_size": null,
+    "seed": 543210,
+    "data_seed": 34521,
+    "save_interval": 1000,
+    "eval_interval": 1000,
+    "eval_iters": 0
+  },
+  "optimization": {
+    "optimizer": "adamw",
+    "peak_lr": null,
+    "min_lr": 0.0,
+    "scheduler": "linear",
+    "warmup_fraction": 0.03,
+    "warmup_tokens": null,
+    "weight_decay": 0.0,
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.95,
+    "adam_eps": 1e-8,
+    "z_loss": 0.0,
+    "grad_clip": 1.0
+  }
+}

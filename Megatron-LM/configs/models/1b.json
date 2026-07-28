@@ -1,0 +1,29 @@
+{
+  "model": {
+    "size": "1b",
+    "provenance": {
+      "kind": "official_olmo_core_architecture",
+      "symbol": "TransformerConfig.olmo3_1B",
+      "source": "third_party/OLMo-core/src/olmo_core/nn/transformer/config.py"
+    },
+    "num_layers": 16,
+    "hidden_size": 2048,
+    "ffn_hidden_size": 8192,
+    "num_attention_heads": 16,
+    "num_query_groups": 16,
+    "kv_channels": 128,
+    "true_vocab_size": 100278,
+    "padded_vocab_size": 100352,
+    "tie_word_embeddings": false,
+    "qk_norm": true,
+    "qk_norm_mode": "full_projection",
+    "rms_norm_eps": 1e-6,
+    "rope_theta": 500000,
+    "rope_full_precision": true,
+    "swa_window": 4096,
+    "swa_pattern": [4096, 4096, 4096, -1],
+    "initializer_range": 0.02,
+    "attention_dropout": 0.0,
+    "hidden_dropout": 0.0
+  }
+}

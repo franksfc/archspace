@@ -1,0 +1,42 @@
+{
+  "stage": {
+    "name": "stage3",
+    "sequence_length": 65536,
+    "model_max_sequence_length": 65536,
+    "packed": true,
+    "assistant_only_loss": false,
+    "full_attention_yarn": {
+      "type": "yarn",
+      "factor": 8.0,
+      "beta_fast": 32,
+      "beta_slow": 1,
+      "original_max_position_embeddings": 8192
+    },
+    "activation_checkpoint": "none",
+    "checkpoint_lifecycle": "transition_or_resume"
+  },
+  "training": {
+    "train_tokens": 50000000000,
+    "epochs": null,
+    "global_batch_size": null,
+    "micro_batch_size": null,
+    "seed": 4123,
+    "data_seed": 4123,
+    "save_interval": 1000,
+    "eval_interval": 1000,
+    "eval_iters": 0
+  },
+  "optimization": {
+    "optimizer": "adamw",
+    "peak_lr": null,
+    "min_lr": 0.0,
+    "scheduler": "linear",
+    "warmup_tokens": null,
+    "weight_decay": 0.1,
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.95,
+    "adam_eps": 1e-8,
+    "z_loss": 1e-5,
+    "grad_clip": 1.0
+  }
+}

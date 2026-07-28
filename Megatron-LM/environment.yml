@@ -1,0 +1,16 @@
+name: olmo3-mindspeed-pipeline
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.20
+  - pip
+# This is a clean Conda environment contract. It never inherits or clones an
+# existing environment. Run scripts/bootstrap_conda_env.sh so the public
+# Python dependency locks and the externally supplied, ABI-matched
+# torch/torch_npu wheels are installed in the required order.
+#
+# CANN, the Ascend driver/firmware, and physical NPU devices are host
+# prerequisites and are not Conda packages. ASCEND_RUNTIME_LOCK.json pins that
+# external binary contract; scripts/verify_ascend_env.py validates it.
+# scripts/bootstrap_conda_env.sh upgrades pip, setuptools, and wheel to the
+# exact versions in requirements.txt immediately after creating this prefix.

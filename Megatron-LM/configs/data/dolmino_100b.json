@@ -1,0 +1,30 @@
+{
+  "data": {
+    "name": "dolmino_100b",
+    "stage": "stage2",
+    "backend": "olmo3_numpy_fsl",
+    "root": null,
+    "manifest": null,
+    "work_dir": null,
+    "known_token_count": 102421858230,
+    "tokenizer": {
+      "kind": "huggingface_tokenizer_json",
+      "path": null,
+      "eos_token_id": 100257,
+      "pad_token_id": 100277,
+      "bos_token_id": null
+    },
+    "source": {
+      "repository": "allenai/dolma3_dolmino_mix-100B-1025",
+      "revision": "f23942ae8a8114af6e992efe8188ce8c531acd16"
+    },
+    "packing": {
+      "kind": "fixed_sequence_length",
+      "sequence_length": 8192,
+      "data_seed": 1337,
+      "drop_incomplete_source_tail": true,
+      "drop_incomplete_global_batch": true
+    }
+  }
+}
+

@@ -1,0 +1,18 @@
+name: Repository hygiene
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  public-surface:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+      - name: Scan public Git candidates
+        run: python scripts/check_repository_hygiene.py

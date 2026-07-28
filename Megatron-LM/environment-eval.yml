@@ -1,0 +1,11 @@
+name: olmo3-olmes-eval
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.20
+  - pip
+  - git
+# OLMES uses torch 2.8 and transformers 4.57. It is intentionally isolated
+# from the Ascend training environment, whose torch/torch_npu ABI is fixed by
+# ASCEND_RUNTIME_LOCK.json. Use scripts/eval/bootstrap_eval_env.sh to populate
+# this fresh environment from the pinned third_party/olmes checkout.

@@ -1,0 +1,13 @@
+{
+  "variant": {
+    "name": "siamese_depth",
+    "model_impl": "olmo3_siamese_depth",
+    "use_siamese_norm": true,
+    "siamese_norm_variant": "hybrid_pre",
+    "use_depth_attention": true,
+    "depth_attention_stride": 8,
+    "depth_attention_recent_window": 0,
+    "checkpoint_keyspace": "olmo3_siamese_depth_v1"
+  }
+}
+
