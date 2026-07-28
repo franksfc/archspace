@@ -1,6 +1,5 @@
 # Next Concept Prediction (NCP)
 
-[![Weights & Biases](https://img.shields.io/badge/Weights_%26_Biases-Experiment_Report-FFBE00?logo=weightsandbiases&logoColor=black)](https://wandb.ai/archspace/ncp-olmo3/reports/NCP-Olmo3--VmlldzoxNzYwMjkzMw)
 [![Hugging Face](https://img.shields.io/badge/Hugging_Face-Model_Collection-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/ArchSpace-Collection/models)
 
 Next Concept Prediction (NCP) investigates autoregressive language models that
@@ -70,16 +69,11 @@ Training was recorded with TensorBoard, Weights & Biases, and additional
 diagnostics for VQ usage, representation rank, routing, gradients, and
 parameter updates.
 
-## 4. Observed Results
+## 4. Evaluation Results
 
-These results are preliminary engineering measurements, not a final model
-claim. A matched quality comparison against the official OLMo 3 baseline has
-not yet been packaged for release.
+[![Weights & Biases](https://img.shields.io/badge/Weights_%26_Biases-Experiment_Report-FFBE00?logo=weightsandbiases&logoColor=black)](https://wandb.ai/archspace/ncp-olmo3/reports/NCP-Olmo3--VmlldzoxNzYwMjkzMw)
 
-### 4.1 Training Health and Known Limitation
-
-
-### 4.2 Evaluation
+Coming Soon
 
 ## 5. Code and Reproduction Plan
 
