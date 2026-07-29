@@ -1,0 +1,5 @@
+accelerate>=1.10,<2
+datasets>=3.0,<5
+huggingface-hub>=0.36
+torch==2.9.0
+transformers==5.8.0
