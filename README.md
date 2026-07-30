@@ -1,80 +1,31 @@
-## Notes
+# SiameseNorm and DepthAttention for OLMo 3
 
-💡 To make your Proposal easier to validate and accept, provide implementation code that is **reproducible**, **runnable**, and **easy to use**, together with **clear and complete documentation**.
+This branch implements SiameseNorm and DepthAttention on top of the OLMo 3 architecture.
 
-💡 The model architecture code must be converted to a Hugging Face Transformers-compatible format and placed in the `archs/` directory. **Only changes within `archs/` will be merged**.
+## Repository Layout
 
-💡 **All reproduction code must be placed in the `reproduce/` directory**, which you may also use as your working directory during development.
+| Path | Description |
+|---|---|
+| [`archs/SiameseNorm-DepthAttention`](archs/SiameseNorm-DepthAttention) | Hugging Face Transformers-compatible implementation for inference and generation |
+| [`reproduce/Megatron-LM`](reproduce/Megatron-LM) | Ascend/MindSpeed training, checkpoint conversion, inference, and evaluation pipeline |
 
-# Architecture: `<Architecture Name>`
+The reproduction pipeline covers:
 
----
+- Stage 1: 8K pretraining
+- Stage 2: 8K mid-training
+- Stage 3: 65K long-context training
+- Stage 4: Think SFT and Instruct SFT
+- Checkpoint save, resume, transition, and Hugging Face conversion
+- Native inference, PPL validation, and OLMES evaluation
 
-## 1. Basic Information
+Detailed setup and execution commands are available in the
+[reproduction runbook](reproduce/Megatron-LM/docs/RUNBOOK.md).
 
-| Item                 |                          Details                          |
-| -------------------- | :-------------------------------------------------------: |
-| Architecture Name    |                   `<Architecture Name>`                   |
-| Parent ARCH-PROP ID  | [Issue \#N](https://github.com/InternLM/archspace/issues) |
-| Current ARCH-PROP ID | [Issue \#N](https://github.com/InternLM/archspace/issues) |
+## Released Checkpoints and Logs
 
-## 2. Reproducing the Experiments
+- [Hugging Face checkpoints](https://huggingface.co/ArchSpace-Collection/SiameseNorm-DepthAttention)
+- [Weights & Biases report](https://wandb.ai/archspace/SiameseNormDepthAttention/reports/Siamese-Norm-and-Depth-Attention-in-OLMo-3-1B--VmlldzoxNzYwMzAwNw)
 
-### 2.1 Environment Setup
-
-> Specify the required hardware and software environment, and provide complete installation instructions. Pin key dependency versions to ensure the environment can be reproduced reliably.
-
-### 2.2 Data Preparation
-
-> Architecture experiments should generally use the same data as the baseline. If the data or data-processing pipeline differs from the baseline, describe the data source and the complete preparation process here.
-
-### 2.3 Training Pipeline
-
-> Provide all training scripts, configuration files, and commands required to reproduce the training process. The commands should run without requiring modifications to the source code.
-
-### 2.4 Evaluation Pipeline
-
-> Provide all evaluation scripts, configuration files, and commands required to reproduce the reported results. Clearly specify the evaluation metrics and expected outputs.
-
-### 2.5 Model Weights and Experiment Logs
-
-> 1. Use [Weights & Biases](https://wandb.ai/site/) to record training logs.
-> 2. After completing the validation experiments, convert the model architecture code to a [Hugging Face Transformers-compatible format](https://huggingface.co/docs/transformers/v5.14.0/en/main_classes/model).## Notes
->    💡 To make your Proposal easier to validate and accept, provide implementation code that is **reproducible**, **runnable**, and **easy to use**, together with **clear and complete documentation**.
->    💡 The model architecture code must be converted to a Hugging Face Transformers-compatible format and placed in the `archs/` directory. **Only changes within `archs/` will be merged**.
->    💡 **All reproduction code must be placed in the `reproduce/` directory**, which you may also use as your working directory during development.
-
-# Architecture: `<Architecture Name>`
-
----
-
-## 1. Basic Information
-
-| Item                 |                          Details                          |
-| -------------------- | :-------------------------------------------------------: |
-| Architecture Name    |                   `<Architecture Name>`                   |
-| Parent ARCH-PROP ID  | [Issue \#N](https://github.com/InternLM/archspace/issues) |
-| Current ARCH-PROP ID | [Issue \#N](https://github.com/InternLM/archspace/issues) |
-
-## 2. Reproducing the Experiments
-
-### 2.1 Environment Setup
-
-> Specify the required hardware and software environment, and provide complete installation instructions. Pin key dependency versions to ensure the environment can be reproduced reliably.
-
-### 2.2 Data Preparation
-
-> Architecture experiments should generally use the same data as the baseline. If the data or data-processing pipeline differs from the baseline, describe the data source and the complete preparation process here.
-
-### 2.3 Training Pipeline
-
-> Provide all training scripts, configuration files, and commands required to reproduce the training process. The commands should run without requiring modifications to the source code.
-
-### 2.4 Evaluation Pipeline
-
-> Provide all evaluation scripts, configuration files, and commands required to reproduce the reported results. Clearly specify the evaluation metrics and expected outputs.
-
-### 2.5 Model Weights and Experiment Logs
-
-> 1. Use [Weights & Biases](https://wandb.ai/site/) to record training logs.
-> 2. After completing the validation experiments, convert the model architecture code to a [Hugging Face Transformers-compatible format](https://huggingface.co/docs/transformers/v5.14.0/en/main_classes/model).
+The released checkpoints currently cover the complete four-stage OLMo 3 1B
+SiameseNorm–DepthAttention pipeline. Matched baseline training and additional
+model-scale validation are ongoing.
